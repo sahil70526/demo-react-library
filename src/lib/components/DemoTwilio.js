@@ -80,38 +80,51 @@ const DemoTwilio = ({ getTokenFromServer }) => {
     }, []);
 
     return (
-        <>
-            <div className='main1'>
-                <h1>Twilio Video Chat</h1>
-                <input
-                    type='text'
-                    value={roomName}
-                    onChange={(e) => setRoomName(e.target.value)}
-                    placeholder='Enter room name'
-                />
-                <button onClick={handleJoinRoom}>Join Room</button>
-                <br />
-                <br />
+<div className='full-screen-container'>
+      <div className='main-container'>
+        <h1 className='title'>Twilio Video Chat</h1>
+        <div className='room-input'>
+          <input
+            type='text'
+            value={roomName}
+            onChange={(e) => setRoomName(e.target.value)}
+            placeholder='Enter room name'
+          />
+          <button onClick={handleJoinRoom} className='join-button'>
+            Join Room
+          </button>
+        </div>
 
-                <div id='local-video-container' className="video-container"></div>
-                <div>
-                    {participantVideoTracks.map((track, index) => (
-                        <div key={track}>
-                            <video ref={(el) => track.attach(el)} autoPlay width={300} />
-                        </div>
-                    ))}
-                </div>
-                {room && (
-                    <div style={{ backgroundColor: "red" }}>
-                        <h2>Room: {roomName}</h2>
-                        <p>Participants: {room.participants.sizeu}</p>
-                        <Icon disabled name='video camera' />
-                    </div>
-                )}
-            </div >
-            {audioState && <Icon name='microphone' size='big' onClick={() => setAudioState(!audioState)} />}
-            {!audioState && <Icon name='microphone slash' size='big' onClick={() => setAudioState(!audioState)} />}
-        </>
+        <div className='video-chat-container'>
+          <div id='local-video-container' className='video-container local-video'>
+            {/* Add any content you want here */}
+          </div>
+          <div className='remote-video-container'>
+            {participantVideoTracks.map((track, index) => (
+              <div key={track} className='remote-video'>
+                <video ref={(el) => track.attach(el)} autoPlay width={300} />
+              </div>
+            ))}
+          </div>
+          {room && (
+            <div className='room-info'>
+              <h2>Room: {roomName}</h2>
+              <p>Participants: {room.participants.size}</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className='control-icons'>
+        {audioState && (
+          <Icon name='microphone' size='big' onClick={() => setAudioState(!audioState)} className='icon' />
+        )}
+        {!audioState && (
+          <Icon name='microphone slash' size='big' onClick={()=>setAudioState(!audioState)} className='icon' />
+        )}
+        <Icon name='video camera' className='icon' />
+      </div>
+    </div>
 
     );
 };

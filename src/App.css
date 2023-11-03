@@ -1,0 +1,76 @@
+/* YourStyles.css */
+.main-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .room-input {
+    margin-bottom: 20px;
+  }
+  
+  .join-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .video-chat-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .video-container {
+    border: 2px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .local-video {
+    width: 300px;
+  }
+  
+  .remote-video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .remote-video {
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .room-info {
+    background-color: #ff6666;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .control-icons {
+    text-align: center;
+  }
+  
+  .icon {
+    margin-right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .full-screen-container {
+    height: 100vh; /* 100% of viewport height */
+    width: 100vw; /* 100% of viewport width */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
